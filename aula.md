@@ -15,7 +15,6 @@ Como um lego, você irá utilizar peças para criar algoritmos, ou seja, para re
 - Controle de fluxo (if/else)
 - Estrutura de repetição (for, while)
 
-
 # Fases da resolução de um problema
 
 - [x] Coletar os dados
@@ -37,6 +36,7 @@ Como um lego, você irá utilizar peças para criar algoritmos, ou seja, para re
 
 - [x] Operadores de atribuição de valor
 - [x] Operador de contatenação
+- [x] Operradores de comparação: == !=  < > <= >=
 
 ## Estruturas de dados:
 
@@ -61,6 +61,7 @@ Como um lego, você irá utilizar peças para criar algoritmos, ou seja, para re
 
 # Condicionais
 - [x] switch
+- [x] if/else
 
 ## Módulos em Node.js:
 
