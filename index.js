@@ -27,14 +27,14 @@ const listarMetas = async () => {
         instructions: false,  
     })
 
+    metas.forEach((m) => {
+        m.checked = false
+    })
+
     if(respostas.length == 0) {
         console.log("Nenhuma meta foi selecionada!")
         return
     }
-
-    metas.forEach((m) => {
-        m.checked = false
-    })
 
     respostas.forEach((resposta) => {
         const meta = metas.find((m) => {
@@ -58,15 +58,27 @@ const metasRealizadas = async () => {
         return
     }
 
-    await.select({
-        message: "Metas Realizadas",
-        choices [...realizadas]
+    await select({
+        message: "Metas Realizadas" + realizadas.length,
+        choices: [...realizadas]
     })
-
-
-
 }
 
+const metasAbertas = async () => {
+    const abertas = metas.filter((meta) => {
+        return meta.checked != true
+    }) 
+    
+    if(abertas.length == 0) {
+        console.log("Não existem metas abertas! :)")
+        return
+    }
+
+    await select({
+        message: "Metas Abertas" + abertas.length,
+        choices: [...abertas]
+    })
+}
 
 const start = async () => {
     
@@ -88,6 +100,10 @@ const start = async () => {
                     value: "realizadas"
                 },
                 {
+                    name: "Metas abertas",
+                    value: "abertas"
+                },
+                {
                     name: "Sair",
                     value: "sair"
                 }
@@ -100,10 +116,13 @@ const start = async () => {
                 console.log(metas)
                 break
             case "listar":
-                await listarMetas ()
+                await listarMetas()
                 break
             case "realizadas":
-                await metasRealizadas ()
+                await metasRealizadas()
+                break
+            case "abertas":
+                await metasAbertas()
                 break
             case "sair":
                 console.log("Até a próxima!")
